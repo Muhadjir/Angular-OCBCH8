@@ -1,0 +1,13 @@
+<!-- <p>button works!</p> -->
+<!-- <button (click)="buttonClick()">Klik {{actionName}}</button> -->
+
+<p>dari button!: {{message}}</p>
+
+
+<label for="item-input">Add an item:</label>
+<input type="text" id="item-input" #newItem>
+<button (click)="addNewItem(newItem.value)">Add to parrents</button>
+
+<button (click)="addNewIncrease(newItem.value)">Increase</button>
+<button (click)="addNewDecrease(newItem.value)">Decrease</button>
+<button (click)="addNewReset(newItem.value)">Decrease</button>

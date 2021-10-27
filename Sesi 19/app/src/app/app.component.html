@@ -1,0 +1,109 @@
+<!-- <h1>Test Angular</h1>
+
+<app-header></app-header>
+<comp-aside></comp-aside>
+<app-button (counterEvnt)="counter()" [actionName]="parentInc"></app-button>
+<app-button (counterEvnt)="decre()" [actionName]="parentDec"></app-button>
+<app-button (counterEvnt)="reset()" [actionName]="parentReset"></app-button>
+<p>{{count}} Kali</p>
+
+<ul>
+    <li *ngfor="Let Item of items">{{item}}</li> -->
+<!-- </ul> -->
+<!-- <input type="text" ([ngModel]) = "input"/> -->
+<!-- <app-add-item (newItemEvent)="addItemParent($event)"></app-add-item> -->
+<!-- {{input}} -->
+
+<h1>Test angular</h1>
+
+Di klik {{counter}} kali
+
+<app-button [message]="parentMessage" (newItemEvent)=addItemInParent($event) (newIncreaseEvent)=addIncreaseInParent() (newDecreaseEvent)=addDecreaseInParent() (newResetEvent)=addResetInParent()></app-button>
+
+
+<ul>
+    <li *ngFor="let item of items">{{item}}</li>
+  </ul>
+  <br>
+<label>
+    Say Something:
+    <input #message>{{message | json}}
+</label>
+<app-paragraph [message]="'You can see me'" ></app-paragraph>
+
+<div *ngFor="let message of messages">
+    <app-paragraph [message]="message"></app-paragraph>
+</div>
+<br>
+Memakai NG template
+<br>
+<ul>
+    <ng-template ngFor let-person [ngForOf]="people">
+            <li class="text-red" *ngIf="person.country === 'USA'">
+                {{person.name}} - {{person.age}} - {{person.country}}
+            </li>
+            <li class="text-blue" *ngIf="person.country === 'UK'">
+                {{person.name}} - {{person.age}} - {{person.country}}
+            </li>
+            <li class="text-green" *ngIf="person.country === 'HK'">
+                {{person.name}} - {{person.age}} - {{person.country}}
+            </li>
+            <li *ngIf="person.country === 'INA'">
+                {{person.name}} - {{person.age}} - {{person.country}}
+            </li>
+    </ng-template>
+</ul>
+<br>
+Memakai NG Swith UL
+<br>
+<ul *ngFor="let person of people; let i =index" 
+[ngSwitch]="person.age"
+>
+    <!-- <ng-template ngFor let-person [ngForOf]="people"> -->
+            <li *ngSwitchCase="23"class="text-red" >
+                {{person.name}} - {{person.age}} - {{person.country}}
+            </li>
+            <li *ngSwitchCase="21" class="text-blue" >
+                {{person.name}} - {{person.age}} - {{person.country}}
+            </li>
+            <li *ngSwitchCase="22" class="text-green">
+                {{person.name}} - {{person.age}} - {{person.country}}
+            </li>
+            <li *ngSwitchDefault>
+                {{person.name}} - {{person.age}} - {{person.country}}
+            </li>
+    <!-- </ng-template> -->
+</ul>
+<br>
+One Liner without css
+<br>
+<ul>
+    <li *ngFor="let person of people" [ngStyle]="{'color': (person.country === 'USA') ? 'red' : (person.country === 'HK') ? 'blue' : (person.country === 'MARS') ? 'green' : ''}">
+        {{person.name}}, {{person.age}}th dari {{person.country}}
+    </li>
+</ul>
+<br>
+One Liner with css
+<br>
+<ul>
+    <li *ngFor="let person of people" [class.text-red]="person.country==='USA'" [class.text-blue]="person.country==='HK'" [class.text-green]="person.country==='MARS'">
+        {{person.name}}, {{person.age}}th dari {{person.country}}
+    </li>
+</ul>
+<br>
+Pipe
+<br>
+<h3>
+    {{people | json}}
+    <br>
+    {{currentDate | date}}
+    <br>
+    {{currentDate | date:'dd MMMM YYYY'}}
+    <br>
+    {{currentDate | date:'dd MMMM YYYY' | uppercase | json}}
+</h3>
+
+<br>
+<h2>
+    {{37267246826742 | fileSize:'TB'}}
+</h2>
