@@ -11,12 +11,15 @@ export class AddTodoFormComponent {
 
   @Output() newTodoEvent = new EventEmitter<Todo>();
   inputTodo:string = "";
-  
+  validPattern = "[a-zA-Z0-9 ]*";
   errors = { todo:{} }
   todoData = new FormGroup({
     todo: new FormControl('', [
       Validators.required, 
-      Validators.minLength(5)])
+      Validators.minLength(5),
+      Validators.pattern(this.validPattern)
+
+    ])
   })
 
   isSubmitted = false

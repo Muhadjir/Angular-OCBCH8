@@ -1,9 +1,6 @@
 <form [formGroup]="todoData" (ngSubmit)="handleTodoForm()">
     <div *ngIf="isSubmitted && (todo?.errors?.required || todo?.errors?.minlength)">
 
-        <span *ngIf="isSubmitted && todo?.errors?.required">todo task tidak boleh kosong.</span>
-        <span *ngIf="isSubmitted && todo?.errors?.minlength">Minimal karakter 
-            {{todo?.errors?.minlength?.requiredLength}}</span>
     </div>
     <div class="input-group mb-3">
         <input (change)="handleIsSubmittedState()"
@@ -21,4 +18,11 @@
             
         />
     </div>
+        <span *ngIf="isSubmitted && todo?.errors?.required">Todo task tidak boleh kosong. Diisi Dong</span>
+        <span *ngIf="isSubmitted && todo?.errors?.pattern">Todo task tidak boleh ada simbol! -_-</span>
+        <br>
+        <span *ngIf="isSubmitted && todo?.errors?.minlength">Minimal
+            {{todo?.errors?.minlength?.requiredLength}} Karakter yaaa</span>
+    <br>
+    
 </form>
