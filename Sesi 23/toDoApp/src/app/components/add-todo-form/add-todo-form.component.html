@@ -23,6 +23,8 @@
         <br>
         <span *ngIf="isSubmitted && todo?.errors?.minlength">Minimal
             {{todo?.errors?.minlength?.requiredLength}} Karakter yaaa</span>
+            <span *ngIf="isSubmitted && todo?.errors?.maxlength">Kelebihan Karakter! Maksimal
+                {{todo?.errors?.maxlength?.requiredLength}} Karakter </span>
     <br>
     
 </form>

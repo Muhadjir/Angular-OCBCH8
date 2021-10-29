@@ -10,6 +10,7 @@ import { NoEncapsulationComponent } from './view-encap/no-encapsulation/no-encap
 import { EmulEncapsulationComponent } from './view-encap/emul-encapsulation/emul-encapsulation.component';
 import { ShadowdomEncapsulationComponent } from './view-encap/shadowdom-encapsulation/shadowdom-encapsulation.component';
 import { LoginReactiveFormComponent } from './login-reactive-form/login-reactive-form.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { LoginReactiveFormComponent } from './login-reactive-form/login-reactive
   imports: [
     BrowserModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule, AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

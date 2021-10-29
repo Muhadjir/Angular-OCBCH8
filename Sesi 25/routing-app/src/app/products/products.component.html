@@ -1,0 +1,30 @@
+<p>products works!</p>
+<!-- <div class="row">
+    <div class="col-sm-4" *ngFor="let product of products">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p class="card-text">{{product.desc}}</p>
+                <a [routerLink]="['/product-detail/', product.id]" class="btn btn-danger">Check Product</a>
+            </div>
+        </div>
+    </div>
+</div> -->
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Detail</th>
+    </tr>
+    <tr *ngFor="let product of products">
+        <td>{{product.id}}</td>
+        <td>{{product.code}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>
+            <a [routerLink]="['/product-detail/', product.id]" class="btn btn-danger">Detail Product</a>
+        </td>
+    </tr>
+</table>

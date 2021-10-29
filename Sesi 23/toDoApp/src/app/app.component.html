@@ -13,13 +13,13 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="category">Category</label>
+    <label for="category">Category </label>
     <select class="form-control" type="text" name="category" id="category" ngModel #category="ngModel" required>
-      <option [value]=" "> ----Input Here----</option>
+      <option [value]=""> ----Input Here----</option>
       <option *ngFor="let category of categories" [value]="category">{{category}}</option>
     </select>
   </div>
-  <div [hidden]="category.value !='' || category.pristine">
+  <div [hidden]="category.value !=='' || category.pristine">
     Category should be Choosen!
   </div>
   <input type="submit" value="submit" [disabled]="!taskForm.form.valid"/>

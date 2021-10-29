@@ -17,6 +17,7 @@ export class AddTodoFormComponent {
     todo: new FormControl('', [
       Validators.required, 
       Validators.minLength(5),
+      Validators.maxLength(15),
       Validators.pattern(this.validPattern)
 
     ])
