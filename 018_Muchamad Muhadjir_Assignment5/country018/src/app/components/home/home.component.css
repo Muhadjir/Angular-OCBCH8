@@ -38,9 +38,9 @@ body {
   .country-block {
       padding: 30px 0;
       text-align: center;
-      color: white;
+      color: black;
       height: 150px;
-      background-color: #795548;
+      background-color: #95dfab;
       border-radius: 2px;
   }
   

@@ -11,7 +11,7 @@ import { CountryService } from '../../country.service';
     styleUrls: ['./country-detail.component.css']
 })
 export class CountryDetailComponent implements OnInit {
-    country: Country[]=[];
+    country: Country = {} as Country;
     // x: any = ' '
 
     constructor(

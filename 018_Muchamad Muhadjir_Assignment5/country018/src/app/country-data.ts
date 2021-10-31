@@ -48,5 +48,21 @@ export const COUNTRIES: Country[] = [
     population: 12676200,
     currency: 'Yen',
     gdp: 4939384
+  },
+  {
+    name: 'United Kingdom',
+    capital: 'London',
+    area: 242495,
+    population: 67886011 ,
+    currency: 'Pounds',
+    gdp: 3123384
+  },
+  {
+    name: 'Turkey',
+    capital: 'Ankara',
+    area: 783562,
+    population: 84339067 ,
+    currency: 'Lira',
+    gdp: 794530000
   }
 ];

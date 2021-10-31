@@ -11,15 +11,15 @@ export class CountryService {
   }
 
   getPopulatedCountries(): Country[] {
-    return COUNTRIES.sort((a, b) => b.population - a.population).slice(0, 3);
+    return COUNTRIES.sort((a, b) => b.population - a.population).slice(0, 5);
   }
 
   getLargestCountries(): Country[] {
-    return COUNTRIES.sort((a, b) => b.area - a.area).slice(0, 3);
+    return COUNTRIES.sort((a, b) => b.area - a.area).slice(0, 5);
   }
 
   getGDPCountries(): Country[] {
-    return COUNTRIES.sort((a, b) => b.gdp - a.gdp).slice(0, 3);
+    return COUNTRIES.sort((a, b) => b.gdp - a.gdp).slice(0, 5);
   }
 
   getCountry(name: string | void): Country | any{

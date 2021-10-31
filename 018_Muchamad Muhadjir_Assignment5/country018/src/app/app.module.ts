@@ -7,13 +7,15 @@ import { HomeComponent } from './components/home/home.component';
 import { AllCountriesComponent } from './components/all-countries/all-countries.component';
 import { CountryDetailComponent } from './components/country-detail/country-detail.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AllCountriesComponent,
-    CountryDetailComponent
+    CountryDetailComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
