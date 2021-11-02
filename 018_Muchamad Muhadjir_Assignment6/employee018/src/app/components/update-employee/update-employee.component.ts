@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ActivatedRoute } from '@angular/router';
+import { Employee } from 'src/app/models/employee';
+
 
 @Component({
   selector: 'app-update-employee',
@@ -11,14 +13,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UpdateEmployeeComponent implements OnInit {
   employee_id: number
+  emp: Employee = {} as Employee
   form = {
     inputData: new FormGroup({
       title:new FormControl('',[Validators.required,Validators.minLength(5)]),
-      firstname:new FormControl('',[Validators.required,Validators.minLength(3)]),
-      lastname:new FormControl('',[Validators.required,Validators.minLength(3)]),
-      role:new FormControl('',[Validators.required,Validators.minLength(1)]),
+      firstName:new FormControl('',[Validators.required,Validators.minLength(3)]),
+      lastName:new FormControl('',[Validators.required,Validators.minLength(3)]),
+      role:new FormControl('',[Validators.required,Validators.minLength(3)]),
       password: new FormControl('',[Validators.required,Validators.minLength(5)]),
-      confirmpassword: new FormControl('',[Validators.required,Validators.minLength(5)]),
+      confirmPassword: new FormControl('',[Validators.required,Validators.minLength(5)]),
       email: new FormControl('',[Validators.required,Validators.email])
     })
   }
@@ -30,10 +33,10 @@ export class UpdateEmployeeComponent implements OnInit {
     return this.form.inputData.get('title')
   }
   get firstName(){
-    return this.form.inputData.get('firstname')
+    return this.form.inputData.get('firstName')
   }
   get lastName(){
-    return this.form.inputData.get('lastname')
+    return this.form.inputData.get('lastName')
   }
   get role(){
     return this.form.inputData.get('role')
@@ -45,7 +48,22 @@ export class UpdateEmployeeComponent implements OnInit {
     return this.form.inputData.get('password')
   }
   get confirmPassword(){
-    return this.form.inputData.get('confirmpassword')
+    return this.form.inputData.get('confirmPassword')
+  }
+
+  employeeById(id: number) {
+    this.AuthService 
+    .employeeById(id)
+    .subscribe(e => {
+      console.log(e, "<<<<getbyId")
+      this.emp = e
+      //==setValue untuk editForm==
+      this.form.inputData.controls['title'].setValue(e.title)
+      this.form.inputData.controls['firstName'].setValue(e.firstName)
+      this.form.inputData.controls['lastName'].setValue(e.lastName)
+      this.form.inputData.controls['email'].setValue(e.email)
+      this.form.inputData.controls['role'].setValue(e.role)
+    })
   }
 
   update(){
@@ -61,6 +79,7 @@ export class UpdateEmployeeComponent implements OnInit {
     })
   }
   ngOnInit(): void {
+    this.employeeById(this.employee_id)
   }
 
 }

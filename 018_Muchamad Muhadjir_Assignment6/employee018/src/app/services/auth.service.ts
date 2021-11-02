@@ -26,6 +26,15 @@ export class AuthService {
       }),catchError(this.handleError)
     )
   }
+
+  employeeById(id:number): Observable<any>{
+    const api = `${this.endpoint}Users/${id}`;
+    return this.http.get(api).pipe(
+      map((res:any)=>{
+        return res || {}
+      }),catchError(this.handleError)
+    )
+  }
   
   update(user: Employee, id: number): Observable<any>{
     const api = `${this.endpoint}Users/${id}`;

@@ -3,19 +3,25 @@
         <h3>Update Employee</h3>
         <div class="form-group">
             <label>Title : </label>
-            <input type="text" class="form-control" formControlName="title" name="title" id="title" required>
+            
+            <select class="form-control" name="title" formControlName="title" id="title" required>
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Ms">Ms</option>
+            </select>
+            <!-- <input type="text" class="form-control" formControlName="title" name="title" id="title" required> -->
             <span style="color: red;" *ngIf="title && title.touched && title.invalid">
                 Masukkan Title Min 5 Karakter</span>
         </div>
         <div class="form-group">
             <label>First Name : </label>
-            <input type="text" class="form-control" formControlName="firstname" name="firstname" id="firstname" required>
+            <input type="text" class="form-control" formControlName="firstName" name="firstName" id="firstName" required>
             <span style="color: red;" *ngIf="firstName && firstName.touched && firstName.invalid">
                 Masukkan First Name Min 3 Karakter</span>
         </div>
         <div class="form-group">
             <label>Last Name : </label>
-            <input type="text" class="form-control" formControlName="lastname" name="lastname" id="lastname" required>
+            <input type="text" class="form-control" formControlName="lastName" name="lastName" id="lastName" required>
             <span style="color: red;" *ngIf="lastName && lastName.touched && lastName.invalid">
                 Masukkan Last Name Min 3 Karakter</span>
         </div>
@@ -27,7 +33,11 @@
         </div>
         <div class="form-group">
             <label>Role : </label>
-            <input type="text" class="form-control" formControlName="role" name="role" id="role">
+            <select class="form-control" name="role" formControlName="role" id="role" required>
+                <option value="Admin">Admin</option>
+                <option value="User">User</option>
+            </select>
+            <!-- <input type="text" class="form-control" formControlName="role" name="role" id="role"> -->
             <span style="color: red;" *ngIf="role && role.touched && role.invalid">
                 Pilih Role Yang Sesuai</span>
         </div>
@@ -39,10 +49,16 @@
         </div>
         <div class="form-group">
             <label>Confirm Password : </label>
-            <input type="password" class="form-control" formControlName="confirmpassword" name="confirmpassword" id="confirmpassword">
+            <input type="password" class="form-control" formControlName="confirmPassword" name="confirmPassword" id="confirmPassword">
             <span style="color: red;" *ngIf="confirmPassword && confirmPassword.touched && confirmPassword.invalid">
                 Confirm Password Tidak Sesuai dengan Password</span>
         </div>
-        <button type="submit" class="btn btn-primary">Update Employee</button>
+        
+        <div class="error-actions">
+            <a routerLink="/home" class="btn btn-danger btn-log mx-2">
+                Go Back To Home
+            </a>
+            <button type="submit" class="btn btn-primary">Update Employee</button>
+        </div>
     </form>
 </div>

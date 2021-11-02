@@ -40,9 +40,16 @@
         <div class="form-group">
             <label>Confirm Password : </label>
             <input type="password" class="form-control" formControlName="confirmpassword" name="confirmpassword" id="confirmpassword">
-            <span style="color: red;" *ngIf="confirmPassword !== password">
+            <span style="color: red;" *ngIf="confirmPassword && confirmPassword.touched && confirmPassword.invalid">
                 Confirm Password Tidak Sesuai dengan Password</span>
         </div>
-        <button type="submit" class="btn btn-primary">Add Employee</button>
+        
+        <div class="error-actions">
+            <a routerLink="/home" class="btn btn-danger btn-log mx-2">
+                Go Back To Home
+            </a>
+            <button type="submit" class="btn btn-primary">Add Employee</button>
+        </div>
+        
     </form>
 </div>
