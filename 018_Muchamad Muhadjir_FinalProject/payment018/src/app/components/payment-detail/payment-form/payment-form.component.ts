@@ -10,7 +10,6 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./payment-form.component.css']
 })
 export class PaymentFormComponent implements OnInit {
-
   constructor(public authService:AuthService,
     private toastr: ToastrService) { }
 
@@ -20,28 +19,28 @@ export class PaymentFormComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (this.authService.payDet.paymentDetailId == 0)
-      this.insertRecord(form);
+      this.insert(form);
     else
-      this.updateRecord(form);
+      this.update(form);
   }
 
-  insertRecord(form: NgForm) {
-    this.authService.postPaymentDetail().subscribe(
+  insert(form: NgForm) {
+    this.authService.postData().subscribe(
       res => {
         this.resetForm(form);
-        this.authService.refreshList();
-        this.toastr.success('Submitted successfully', 'Payment Detail Register')
+        this.authService.refresh();
+        this.toastr.success('Data Berhasil Ditambah!', 'Payment Detail Register')
       },
       err => { console.log(err); }
     );
   }
 
-  updateRecord(form: NgForm) {
-    this.authService.putPaymentDetail().subscribe(
+  update(form: NgForm) {
+    this.authService.putData().subscribe(
       res => {
         this.resetForm(form);
-        this.authService.refreshList();
-        this.toastr.info('Updated successfully', 'Payment Detail Register')
+        this.authService.refresh();
+        this.toastr.info('Data Berhasil Dirubah!', 'Payment Detail Register')
       },
       err => { console.log(err); }
     );
@@ -50,6 +49,7 @@ export class PaymentFormComponent implements OnInit {
 
   resetForm(form: NgForm) {
     form.form.reset();
-    this.authService.payDet =new PaymentDetail();
+    this.authService.payDet = {} as PaymentDetail;
+    location.reload()
   }
 }

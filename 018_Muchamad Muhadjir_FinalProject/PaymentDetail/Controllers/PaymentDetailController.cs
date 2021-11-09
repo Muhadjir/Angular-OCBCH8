@@ -35,8 +35,8 @@ namespace PaymentDetail.Controllers
                 await _context.tb_payment_detail.AddAsync(data);
                 await _context.SaveChangesAsync();
                 // var item = await _context.tb_payment_details.FirstOrDefaultAsync(x => x.paymentDetailpaymentDetailId == id);
-                return CreatedAtAction(nameof(GetItems), new { id= data.paymentDetailId }, data);
-
+                // return CreatedAtAction(nameof(GetItems), new { id= data.paymentDetailId }, data);
+                return Ok(new { message = "Successfully create a new payment details, please check your database"});
                 // return CreatedAtAction("GetItem",new {data.paymentDetailId}, data);
             }
             
@@ -73,7 +73,7 @@ namespace PaymentDetail.Controllers
             //Implement the changes on the db level
             await _context.SaveChangesAsync();
 
-            return Ok("Perubahan Data Berhasil! Silahkan jalankan GET kembali.");
+            return Ok(new {message = "Perubahan Data Berhasil! Silahkan jalankan GET kembali."});
             
         }
 
@@ -87,7 +87,7 @@ namespace PaymentDetail.Controllers
             _context.tb_payment_detail.Remove(existItem);
             await _context.SaveChangesAsync();
             
-            return Ok("Data Berhasil Dihapus! Silahkan jalankan GET kembali.");
+            return Ok(new {message = "Data Berhasil Dihapus! Silahkan jalankan GET kembali."});
         }
 
     }

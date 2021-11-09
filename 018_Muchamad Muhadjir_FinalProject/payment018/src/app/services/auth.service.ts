@@ -13,19 +13,19 @@ export class AuthService {
   payDet: PaymentDetail = new PaymentDetail()
   list: PaymentDetail[];
 
-  postPaymentDetail() {
+  postData() {
     return this.http.post(this.api, this.payDet);
   }
 
-  putPaymentDetail() {
+  putData() {
     return this.http.put(`${this.api}/${this.payDet.paymentDetailId}`, this.payDet);
   }
 
-  deletePaymentDetail(id: number) {
+  delete(id: number) {
     return this.http.delete(`${this.api}/${id}`);
   }
 
-  refreshList() {
+  async refresh() {
     this.http.get(this.api)
       .toPromise()
       .then(res =>this.list = res as PaymentDetail[]);

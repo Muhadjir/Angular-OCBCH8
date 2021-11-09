@@ -8,12 +8,19 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { PaymentDetailComponent } from './components/payment-detail/payment-detail.component';
 import { PaymentFormComponent } from './components/payment-detail/payment-form/payment-form.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NoPageFoundComponent } from './components/no-page-found/no-page-found.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PaymentDetailComponent,
-    PaymentFormComponent
+    PaymentFormComponent,
+    NoPageFoundComponent,
+    NavbarComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +28,8 @@ import { PaymentFormComponent } from './components/payment-detail/payment-form/p
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

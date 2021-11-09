@@ -9,24 +9,25 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./payment-detail.component.css']
 })
 export class PaymentDetailComponent implements OnInit {
-
+today: Date;
   constructor(public authService:AuthService,
     private toastr: ToastrService) { }
   ngOnInit(): void {
-    this.authService.refreshList();
+    this.authService.refresh();
+    this.today = new Date()
   }
 
-  populateForm(selectedRecord: PaymentDetail) {
+  getForm(selectedRecord: PaymentDetail) {
     this.authService.payDet = Object.assign({}, selectedRecord);
   }
 
-  onDelete(id: number) {
-    if (confirm('Are you sure to delete this record?')) {
-      this.authService.deletePaymentDetail(id)
+  onDelete(id: number, nama:string) {
+    if (confirm(`Apakah anda ingin menghapus data dari: ${nama}`)) {
+      this.authService.delete(id)
         .subscribe(
           res => {
-            this.authService.refreshList();
-            this.toastr.error("Deleted successfully", 'Payment Detail Register');
+            this.authService.refresh();
+            this.toastr.error("Data Berhasil Dihapus!", 'Payment Detail Register');
           },
           err => { console.log(err) }
         )

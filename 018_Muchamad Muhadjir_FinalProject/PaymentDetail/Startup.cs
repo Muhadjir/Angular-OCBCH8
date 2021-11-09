@@ -44,7 +44,7 @@ namespace PaymentDetail
             }));
             // services.Configure<JwtConfig>(Configuration.GetSection("JwtConfig"));
             services.AddDbContextPool<ApiDbContext>(
-               options => options.UseMySql("Server=remotemysql.com;Port=3306;Database=dE0G9HyoEt;Uid=dE0G9HyoEt;Pwd=WQBmNLclDc;",new MySqlServerVersion(new Version(8, 0, 11))));
+               options => options.UseMySql("Server=localhost;port=3306;Database=db_payment_detail;Uid=root;Pwd=root;SslMode=none",new MySqlServerVersion(new Version(8, 0, 11))));
             services.AddMvc();
 
             services.AddControllers();

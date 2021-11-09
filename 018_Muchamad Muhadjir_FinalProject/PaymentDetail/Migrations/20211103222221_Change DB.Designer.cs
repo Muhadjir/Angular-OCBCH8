@@ -9,8 +9,8 @@ using PaymentDetail.Data;
 namespace PaymentDetail.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    [Migration("20211023181141_Added refresh token")]
-    partial class Addedrefreshtoken
+    [Migration("20211103222221_Change DB")]
+    partial class ChangeDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -227,8 +227,8 @@ namespace PaymentDetail.Migrations
                     b.Property<string>("cardOwnerName")
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("expirationDate")
-                        .HasColumnType("datetime(6)");
+                    b.Property<string>("expirationDate")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("securityCode")
                         .HasColumnType("longtext");
